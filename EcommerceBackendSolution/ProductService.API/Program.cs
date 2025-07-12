@@ -1,4 +1,7 @@
 
+using ProductService.Application.Interfaces;
+using ProductService.Infrastructure.DependencyInjection;
+
 namespace ProductService.API
 {
     public class Program
@@ -13,7 +16,8 @@ namespace ProductService.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddInfrastructureServices();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

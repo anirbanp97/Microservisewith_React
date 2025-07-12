@@ -1,4 +1,7 @@
 
+using LoggingService.Infrastructure.MongoContext;
+using LoggingService.Infrastructure.Services;
+
 namespace LoggingService.API
 {
     public class Program
@@ -13,7 +16,8 @@ namespace LoggingService.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddSingleton<MongoDbContext>();
+            builder.Services.AddScoped<LogService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

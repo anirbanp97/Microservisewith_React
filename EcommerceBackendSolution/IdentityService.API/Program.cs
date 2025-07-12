@@ -1,4 +1,6 @@
 
+using IdentityService.Infrastructure.DependencyInjection;
+
 namespace IdentityService.API
 {
     public class Program
@@ -12,6 +14,7 @@ namespace IdentityService.API
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddIdentityInfrastructure();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();

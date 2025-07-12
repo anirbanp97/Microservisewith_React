@@ -1,4 +1,7 @@
 
+using NotificationService.Consumers;
+using NotificationService.Infrastructure.RabbitMQ;
+
 namespace NotificationService.API
 {
     public class Program
@@ -13,7 +16,9 @@ namespace NotificationService.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            var connection = new RabbitMQConnection("localhost");
+            var channel = connection.CreateChannel();
+            var consumer = new EmailNotificationConsumer(channel);
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -23,6 +28,7 @@ namespace NotificationService.API
                 app.UseSwaggerUI();
             }
 
+            consumer.Start();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE usp_GetAllProducts
+AS
+BEGIN
+    SELECT * FROM Products ORDER BY CreatedAt DESC;
+END
