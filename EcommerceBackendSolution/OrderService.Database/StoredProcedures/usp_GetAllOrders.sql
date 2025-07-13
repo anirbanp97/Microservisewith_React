@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE usp_GetAllOrders
+AS
+BEGIN
+    SELECT * FROM Orders
+END

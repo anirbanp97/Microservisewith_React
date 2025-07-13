@@ -1,0 +1,76 @@
+﻿-- ============================
+-- Create Products Table
+-- ============================
+CREATE TABLE Products (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(500),
+    Price DECIMAL(18, 2) NOT NULL,
+    Quantity INT NOT NULL,
+    Category NVARCHAR(50) NOT NULL
+);
+
+-- ============================
+-- usp_AddProduct
+-- ============================
+CREATE PROCEDURE usp_AddProduct
+    @Name NVARCHAR(100),
+    @Description NVARCHAR(500),
+    @Price DECIMAL(18,2),
+    @Quantity INT,
+    @Category NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Products (Name, Description, Price, Quantity, Category)
+    VALUES (@Name, @Description, @Price, @Quantity, @Category)
+END
+
+-- ============================
+-- usp_GetAllProducts
+-- ============================
+CREATE PROCEDURE usp_GetAllProducts
+AS
+BEGIN
+    SELECT * FROM Products
+END
+
+-- ============================
+-- usp_GetProductById
+-- ============================
+CREATE PROCEDURE usp_GetProductById
+    @Id INT
+AS
+BEGIN
+    SELECT * FROM Products WHERE Id = @Id
+END
+
+-- ============================
+-- usp_UpdateProduct
+-- ============================
+CREATE PROCEDURE usp_UpdateProduct
+    @Id INT,
+    @Name NVARCHAR(100),
+    @Description NVARCHAR(500),
+    @Price DECIMAL(18,2),
+    @Quantity INT,
+    @Category NVARCHAR(50)
+AS
+BEGIN
+    UPDATE Products
+    SET Name = @Name,
+        Description = @Description,
+        Price = @Price,
+        Quantity = @Quantity,
+        Category = @Category
+    WHERE Id = @Id
+END
+
+-- ============================
+-- usp_DeleteProduct
+-- ============================
+CREATE PROCEDURE usp_DeleteProduct
+    @Id INT
+AS
+BEGIN
+    DELETE FROM Products WHERE Id = @Id
+END

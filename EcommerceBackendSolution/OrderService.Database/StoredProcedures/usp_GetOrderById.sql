@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE usp_GetOrderById
+    @Id INT
+AS
+BEGIN
+    SELECT * FROM Orders WHERE Id = @Id
+END

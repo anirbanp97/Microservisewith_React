@@ -1,3 +1,6 @@
+﻿
+using OrderService.Application.Interfaces;
+using ProductService.Infrastructure.DependencyInjection;
 
 namespace OrderService.API
 {
@@ -13,7 +16,17 @@ namespace OrderService.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddInfrastructureServices(); // Repositories from Infrastructure
 
+            // 🟢 CORS (optional)
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,7 +40,7 @@ namespace OrderService.API
 
             app.UseAuthorization();
 
-
+            app.UseCors("AllowAll");
             app.MapControllers();
 
             app.Run();

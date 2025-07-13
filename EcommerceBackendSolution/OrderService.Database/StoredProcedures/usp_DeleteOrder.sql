@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE usp_DeleteOrder
+    @Id INT
+AS
+BEGIN
+    DELETE FROM Orders WHERE Id = @Id
+END
