@@ -1,4 +1,6 @@
-﻿using IdentityService.Infrastructure.Repositories;
+﻿using IdentityService.Application.Interfaces;
+using IdentityService.Application.Services;
+using IdentityService.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProductService.Domain.Entities;
+using ProductService.Infrastructure.DbHelpers;
 
 namespace ProductService.Infrastructure.Repositories
 {

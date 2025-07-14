@@ -1,4 +1,5 @@
 ﻿using BuildingBlocks.Middleware.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
