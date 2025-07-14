@@ -1,5 +1,6 @@
 ﻿using OrderService.Application.Interfaces;
 using OrderService.Domain.Entities;
+using OrderService.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace OrderService.Application.Services
     {
         private readonly IOrderRepository _orderRepository;
 
-        public OrderService(IOrderRepository orderRepository)
+        public OrderService(OrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
         }

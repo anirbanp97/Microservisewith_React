@@ -1,5 +1,7 @@
 ﻿using BuildingBlocks.Logging.Interfaces;
 using BuildingBlocks.Logging.MongoLogger;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;

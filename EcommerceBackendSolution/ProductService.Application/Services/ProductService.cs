@@ -1,5 +1,6 @@
 ﻿using ProductService.Application.Interfaces;
 using ProductService.Domain.Entities;
+using ProductService.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace ProductService.Application.Services
     {
         private readonly IProductRepository _productRepository;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(ProductRepository productRepository)
         {
             _productRepository = productRepository;
         }

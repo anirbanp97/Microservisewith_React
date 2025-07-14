@@ -1,5 +1,6 @@
 ﻿using BuildingBlocks.Messaging.Interfaces;
 using BuildingBlocks.Messaging.Models;
+using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace BuildingBlocks.Messaging.RabbitMQ
                 Password = _options.Password
             };
 
-            using var connection = factory.CreateConnection();
+            using var connection = factory.CreateConnectionAsync();
             using var channel = connection.CreateModel();
 
             channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);

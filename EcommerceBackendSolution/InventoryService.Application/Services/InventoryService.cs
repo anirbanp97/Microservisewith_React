@@ -1,4 +1,6 @@
 ﻿using InventoryService.Application.Interfaces;
+using InventoryService.Domain.Entities;
+using InventoryService.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace InventoryService.Application.Services
     {
         private readonly IInventoryRepository _inventoryRepository;
 
-        public InventoryService(IInventoryRepository inventoryRepository)
+        public InventoryService(InventoryRepository inventoryRepository)
         {
             _inventoryRepository = inventoryRepository;
         }

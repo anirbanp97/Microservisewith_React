@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BuildingBlocks.Common\BuildingBlocks.Common.csproj" />
     <ProjectReference Include="..\InventoryService.Domain\InventoryService.Domain.csproj" />
+    <ProjectReference Include="..\InventoryService.Infrastructure\InventoryService.Infrastructure.csproj" />
     <ProjectReference Include="..\SharedKernel\SharedKernel.csproj" />
   </ItemGroup>
 

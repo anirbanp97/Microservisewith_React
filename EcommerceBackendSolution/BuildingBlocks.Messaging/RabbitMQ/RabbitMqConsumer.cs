@@ -1,5 +1,6 @@
 ﻿using BuildingBlocks.Messaging.Interfaces;
 using BuildingBlocks.Messaging.Models;
+using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,16 @@ namespace BuildingBlocks.Messaging.RabbitMQ
             };
 
             channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
+        }
+
+        private class EventingBasicConsumer
+        {
+            private object channel;
+
+            public EventingBasicConsumer(object channel)
+            {
+                this.channel = channel;
+            }
         }
     }
 }

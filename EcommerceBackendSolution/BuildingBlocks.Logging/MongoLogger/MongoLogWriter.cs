@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Microsoft.Extensions.Configuration;
 namespace BuildingBlocks.Logging.MongoLogger
 {
     public class MongoLogWriter : ILogWriter
