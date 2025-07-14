@@ -1,4 +1,5 @@
 ﻿using IdentityService.Application.Interfaces;
+using SharedKernel.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace IdentityService.Application.Services
 {
     public class UserService : IUserService
     {
-        private readonly UserRepository _repo;
+        private readonly UserRole _repo;
 
-        public UserService(UserRepository repo)
+        public UserService( repo)
         {
             _repo = repo;
         }

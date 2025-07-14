@@ -11,7 +11,7 @@ namespace OrderService.Application.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly OrderRepository _orderRepository;
 
         public OrderService(OrderRepository orderRepository)
         {

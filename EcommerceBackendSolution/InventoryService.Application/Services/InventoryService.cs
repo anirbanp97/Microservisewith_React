@@ -11,7 +11,7 @@ namespace InventoryService.Application.Services
 {
     public class InventoryService : IInventoryService
     {
-        private readonly IInventoryRepository _inventoryRepository;
+        private readonly InventoryRepository _inventoryRepository;
 
         public InventoryService(InventoryRepository inventoryRepository)
         {
